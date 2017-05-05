@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'converter_spec_helper'
 
-require_relative '../app/converters/digital_object_converter'
+require_relative '../../app/converters/digital_object_converter'
 
 describe 'Digital Object converter' do
 
@@ -12,7 +12,7 @@ describe 'Digital Object converter' do
 
 
   before(:all) do
-    test_file = File.expand_path("../app/exporters/examples/digital_object/aspace_digital_object_import_template.csv",
+    test_file = File.expand_path("../../app/exporters/examples/digital_object/aspace_digital_object_import_template.csv",
                                  File.dirname(__FILE__))
     @records = convert(test_file)
     @digital_objects = @records.select {|r| r['jsonmodel_type'] == 'digital_object' }
@@ -40,7 +40,7 @@ describe 'Digital Object converter' do
 
   describe "utf-8 encoding" do
     let(:test_file_bom) {
-      File.expand_path('../app/exporters/examples/digital_object/test_digital_object_utf8_bom.csv',
+      File.expand_path('../../app/exporters/examples/digital_object/test_digital_object_utf8_bom.csv',
                        File.dirname(__FILE__))
     }
 

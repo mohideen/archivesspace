@@ -2,7 +2,7 @@
 require 'spec_helper'
 require 'converter_spec_helper'
 
-require_relative '../app/converters/ead_converter'
+require_relative '../../app/converters/ead_converter'
 
 describe 'EAD converter' do
 
@@ -106,7 +106,7 @@ ANEAD
 
   describe "EAD Import Mappings" do
     def test_file
-      File.expand_path("../app/exporters/examples/ead/at-tracer.xml", File.dirname(__FILE__))
+      File.expand_path("../../app/exporters/examples/ead/at-tracer.xml", File.dirname(__FILE__))
     end
 
     before(:all) do
@@ -968,7 +968,7 @@ ANEAD
  describe "DAO and DAOGROUPS" do
 
    before(:all) do
-      test_file = File.expand_path("../app/exporters/examples/ead/ead-dao-test.xml", File.dirname(__FILE__))
+      test_file = File.expand_path("../../app/exporters/examples/ead/ead-dao-test.xml", File.dirname(__FILE__))
       parsed = convert(test_file)
 
       @digital_objects = parsed.select {|rec| rec['jsonmodel_type'] == 'digital_object'}
@@ -1005,7 +1005,7 @@ ANEAD
   describe "EAD With frontpage" do
 
     before(:all) do
-      test_file = File.expand_path("../app/exporters/examples/ead/vmi.xml", File.dirname(__FILE__))
+      test_file = File.expand_path("../../app/exporters/examples/ead/vmi.xml", File.dirname(__FILE__))
 
       @parsed = convert(test_file)
       @resource = @parsed.select {|rec| rec['jsonmodel_type'] == 'resource'}.last

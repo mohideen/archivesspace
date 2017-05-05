@@ -1,5 +1,5 @@
-require_relative "spec_helper.rb"
-require_relative '../app/converters/lib/utils'
+require "spec_helper.rb"
+require_relative '../../app/converters/lib/utils'
 
 
 describe ASpaceImport::Utils do

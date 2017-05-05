@@ -1,6 +1,6 @@
-require_relative "spec_helper"
-require_relative '../app/converters/lib/parse_queue'
-require_relative '../app/converters/lib/jsonmodel_wrap'
+require "spec_helper"
+require_relative '../../app/converters/lib/parse_queue'
+require_relative '../../app/converters/lib/jsonmodel_wrap'
 
 describe 'ParseQueue' do
 

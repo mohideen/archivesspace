@@ -1,5 +1,5 @@
-require_relative "spec_helper"
-require_relative '../app/lib/uri_resolver'
+require "spec_helper"
+require_relative '../../app/lib/uri_resolver'
 
 describe 'URIResolver' do
 

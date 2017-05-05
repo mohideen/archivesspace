@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../app/lib/realtime_indexing'
+require_relative '../../app/lib/realtime_indexing'
 
 describe 'Realtime indexing' do
 

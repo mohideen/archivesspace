@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'converter_spec_helper'
 
-require_relative '../app/converters/marcxml_accession_converter'
+require_relative '../../app/converters/marcxml_accession_converter'
 
 describe 'MARCXML Accession converter' do
 
@@ -169,7 +169,7 @@ END
       @subjects = parsed.select{|r| r['jsonmodel_type'] == 'subject'}
 
       parsed2 = convert(test_doc_2)
-      @accession2 = parsed2.last      
+      @accession2 = parsed2.last
     end
 
 

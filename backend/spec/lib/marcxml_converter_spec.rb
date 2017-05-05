@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'converter_spec_helper'
 
-require_relative '../app/converters/marcxml_converter'
+require_relative '../../app/converters/marcxml_converter'
 
 describe 'MARCXML converter' do
 
@@ -115,7 +115,7 @@ END
 
 
       def convert_test_file
-        test_file = File.expand_path("../app/exporters/examples/marc/at-tracer-marc-1.xml", File.dirname(__FILE__))
+        test_file = File.expand_path("../../app/exporters/examples/marc/at-tracer-marc-1.xml", File.dirname(__FILE__))
         parsed = convert(test_file)
 
         @corps = parsed.select {|rec| rec['jsonmodel_type'] == 'agent_corporate_entity'}
@@ -350,7 +350,7 @@ END
 
   describe "Importing Name Authority Files" do
     it "can import a name authority record" do
-      john_davis = File.expand_path("../app/exporters/examples/marc/authority_john_davis.xml",
+      john_davis = File.expand_path("../../app/exporters/examples/marc/authority_john_davis.xml",
                                     File.dirname(__FILE__))
 
       converter = MarcXMLConverter.for_subjects_and_agents_only(john_davis)
@@ -371,7 +371,7 @@ END
 
   describe "Importing Subject Authority Files" do
     it "can import a subject authority record" do
-      cyberpunk_file = File.expand_path("../app/exporters/examples/marc/authority_cyberpunk.xml",
+      cyberpunk_file = File.expand_path("../../app/exporters/examples/marc/authority_cyberpunk.xml",
                                     File.dirname(__FILE__))
 
       converter = MarcXMLConverter.for_subjects_and_agents_only(cyberpunk_file)
@@ -651,7 +651,7 @@ MARC
           if resource.dates.nil? || resource.dates.empty?
             resource.dates << ASpaceImport::JSONModel(:date).from_hash({:expression => "1945", :label => "creation", "date_type" => "single"})
           end
-          
+
           if resource.extents.nil? || resource.extents.empty?
             resource.extents << ASpaceImport::JSONModel(:extent).from_hash({:portion => 'whole', :number => '1', :extent_type => 'linear_feet'})
           end
