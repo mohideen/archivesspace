@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+require 'spec_helper'
 
 describe 'Accession model' do
 
@@ -17,7 +17,7 @@ describe 'Accession model' do
                                           :id_1 => "5678",
                                           :id_2 => "9876",
                                           :id_3 => "5432"
-                                          }), 
+                                          }),
                                    :repo_id => $repo_id)
       end
     }.should raise_error(Sequel::ValidationFailed)
@@ -31,7 +31,7 @@ describe 'Accession model' do
                                          :id_1 => "5678",
                                          :id_2 => "",
                                          :id_3 => "5432"
-                                       }), 
+                                       }),
                                  :repo_id => $repo_id)
     }.to raise_error(JSONModel::ValidationException)
   end
@@ -70,7 +70,7 @@ describe 'Accession model' do
 
   it "allows long condition descriptions" do
     long_string = "x" * 1024
-    
+
     accession = Accession.create_from_json(build(:json_accession,
                                                  :condition_description => long_string
                                                  ),
@@ -92,7 +92,7 @@ describe 'Accession model' do
                                                   ]
                                                  ),
                                           :repo_id => $repo_id)
-    
+
 
     Accession[accession[:id]].date.length.should eq(1)
     Accession[accession[:id]].date[0].begin.should eq("2012-05-14")
@@ -100,7 +100,7 @@ describe 'Accession model' do
 
 
   it "allows accessions to be created with an external document" do
-    
+
     accession = Accession.create_from_json(build(:json_accession,
                                                  :external_documents => [
                                                     {
@@ -119,7 +119,7 @@ describe 'Accession model' do
 
   it "throws an error when accession created with duplicate external documents" do
     expect {
-      
+
       Accession.create_from_json(build(:json_accession,
                                        :external_documents => [
                                           {
@@ -136,9 +136,9 @@ describe 'Accession model' do
 
     }.to raise_error(Sequel::ValidationFailed)
   end
-  
+
   it "allows an accession created with external documents with same title duplicate locations" do
-      
+
      accession =  Accession.create_from_json(build(:json_accession,
                                        :external_documents => [
                                           {
@@ -157,7 +157,7 @@ describe 'Accession model' do
 
 
   it "allows accessions to be created with a rights statement" do
-    
+
     accession = Accession.create_from_json(build(:json_accession,
                                                  :rights_statements => [
                                                     {
@@ -176,7 +176,7 @@ describe 'Accession model' do
 
 
   it "allows accessions to be created with a deaccession" do
-    
+
     accession = Accession.create_from_json(build(:json_accession,
                                                  :deaccessions => [
                                                     {
@@ -215,11 +215,11 @@ describe 'Accession model' do
     accession = Accession.create_from_json(build(:json_accession,
                                                  :collection_management =>
                                                  {
-                                                    "processing_status" => "completed" 
+                                                    "processing_status" => "completed"
                                                  }
                                                  ),
                                            :repo_id => $repo_id)
-    Accession[accession[:id]].collection_management.processing_status.should eq("completed") 
+    Accession[accession[:id]].collection_management.processing_status.should eq("completed")
   end
 
 

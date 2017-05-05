@@ -1,6 +1,6 @@
 require 'spec_helper'
-require_relative 'factories'
-require_relative 'container_spec_helper'
+require 'factories'
+require 'container_spec_helper'
 
 
 def add_restriction_to_record(record,

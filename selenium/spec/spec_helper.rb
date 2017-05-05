@@ -1,4 +1,4 @@
-require_relative 'factories'
+require 'factories'
 require 'pry'
 
 require_relative "../common"

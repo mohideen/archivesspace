@@ -173,7 +173,7 @@ def app
 end
 
 
-require_relative 'factories'
+require 'factories'
 require_relative "spec_helper_methods"
 
 

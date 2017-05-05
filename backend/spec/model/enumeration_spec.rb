@@ -1,6 +1,6 @@
 require 'spec_helper'
-require_relative '../app/model/mixins/dynamic_enums'
-require_relative '../app/model/enumeration'
+require_relative '../../app/model/mixins/dynamic_enums'
+require_relative '../../app/model/enumeration'
 
 describe 'Enumerations model' do
 

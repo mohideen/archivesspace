@@ -1,6 +1,6 @@
 require 'spec_helper'
-require_relative 'container_spec_helper'
-require_relative 'factories'
+require 'container_spec_helper'
+require 'factories'
 
 describe 'Extent Calculator model' do
 
@@ -134,7 +134,7 @@ describe 'Extent Calculator model' do
     baby = create_ao_with_instances(resource, child, boxes)
     tiny_boxes = create_containers(tinybox_profile, 21)
     create_ao_with_instances(resource, baby, tiny_boxes)
-    
+
     ext_cal = ExtentCalculator.new(ArchivalObject[parent.id])
     ext_cal.units = :centimeters
 
@@ -155,7 +155,7 @@ describe 'Extent Calculator model' do
   it "warns if it finds one or more containers that don't have container profiles" do
     (resource, grandparent, parent, child) = create_tree(a_box_without_a_profile)
     ext_cal = ExtentCalculator.new(ArchivalObject[child.id])
-    ext_cal.to_hash[:container_without_profile_count].should eq(1)    
+    ext_cal.to_hash[:container_without_profile_count].should eq(1)
   end
 
 

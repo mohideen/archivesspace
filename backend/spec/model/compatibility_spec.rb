@@ -1,6 +1,6 @@
 require 'spec_helper'
-require_relative 'factories'
-require_relative 'container_spec_helper'
+require 'factories'
+require 'container_spec_helper'
 
 
 DEFAULT_INDICATOR = 'default_indicator'
@@ -188,7 +188,7 @@ describe 'Managed Container compatibility' do
     it "updates and links the top container even if we're updating the series AO" do
       container = TopContainer.create_from_json(
                       JSONModel(:top_container).from_hash('indicator' => '1234',
-                                                          'type' => 'box' 
+                                                          'type' => 'box'
                                                          ))
 
       # child links to our top container

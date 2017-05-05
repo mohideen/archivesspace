@@ -1,6 +1,6 @@
 require 'spec_helper'
-require_relative 'factories'
-require_relative 'container_spec_helper'
+require 'factories'
+require 'container_spec_helper'
 
 
 def create_archival_object_with_rights(top_container_json, dates = [])

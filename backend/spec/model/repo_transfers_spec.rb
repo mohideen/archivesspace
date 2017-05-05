@@ -1,6 +1,6 @@
 require 'spec_helper'
-require_relative 'container_spec_helper'
-require_relative 'factories'
+require 'container_spec_helper'
+require 'factories'
 
 describe 'Record transfers' do
 

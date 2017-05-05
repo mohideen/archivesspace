@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative 'factories'
+require 'factories'
 
 describe 'Location Profile model' do
 

@@ -57,5 +57,5 @@ end
 
 JSONModel::init(:enum_source => SpecEnumSource.new)
 
-require_relative 'factories'
+require 'factories'
 

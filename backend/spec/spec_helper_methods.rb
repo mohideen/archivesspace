@@ -1,4 +1,4 @@
-require_relative 'factories'
+require 'factories'
 
 module SpecHelperMethods
   extend self
