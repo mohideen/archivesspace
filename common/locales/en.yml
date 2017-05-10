@@ -671,6 +671,8 @@ en:
     note_outline: Outline
     note_text: Text
     note_type: Note Type
+    note_rights_statement: Rights Statement Note
+    note_rights_statement_act: Act Note
     _singular: Note
     _plural: Notes
 
@@ -702,6 +704,12 @@ en:
     sub_notes_singular: Sub Note
 
   note_digital_object:
+    <<: *note_attributes
+
+  note_rights_statement:
+    <<: *note_attributes
+
+  note_rights_statement_act:
     <<: *note_attributes
 
   note_bibliography:
@@ -937,6 +945,10 @@ en:
     _plural: External Documents
     _singular: External Document
 
+  rights_statement_external_document:
+    <<: *external_document_attributes
+    identifier_type: Identifier Type
+
   external_id:
     _plural: External IDs
     _singular: External ID
@@ -953,26 +965,11 @@ en:
     rights_type_tooltip: |
         <p>The basis for the rights statement being made.Four bases are allowed: intellectual property, license, such as donor agreement, legal statutes such as Fair Use or FERPA, and institutional policy.</p>
     rights_type_message: Please select a Rights Type
-    active: Active
-    active_tooltip: |
-        <p>Indicates whether a rights record is active or inactive.</p>
-    active_true: Active
-    active_false: Inactive
-    materials: Materials
-    materials_tooltip: |
-        <p>A term or brief phrase describing the materials in the accession, resource or collection to which the rights record applies.</p>
-        <p>Examples:</p>
-        <ul>
-        <li>Diaries by Alex Doe</li>
-        </ul>
-    ip_status: IP Status
-    ip_status_tooltip: |
+    status: Status
+    status_tooltip: |
         <p>A term indicating the intellectual property status of the described materials.</p>
-    ip_expiration_date: IP Expiration Date
-    ip_expiration_date_tooltip: |
-        <p>The date the copyright or other intellectual property status is expected to expire.</p>
-    license_identifier_terms: License Identifier Terms
-    license_identifier_terms_tooltip: |
+    license_terms: License Terms
+    license_terms_tooltip: |
         <p>A statement (actual text snippet or summary) of the permissions granted in the license.</p>
     statute_citation: Statute Citation
     statute_citation_tooltip: |
@@ -991,33 +988,19 @@ en:
         <ul>
         <li>Constraint(s) on Use: This work may be protected by copyright law. Use of this work beyond that allowed by the applicable copyright statute requires the written permission of the copyright holder(s). Responsibility for obtaining permissions for any use and distribution of this work rests exclusively with the user and not the UC San Diego Libraries. Inquiries can be made to the Mandeville Special Collections Library (http://libraries.ucsd.edu/locations/mscl/).</li>
         </ul>
-    permissions: Permissions
-    permissions_tooltip: |
-        <p>A description of what kinds of actions are permissible to the repository and/or the end user.</p>
-    restrictions: Restrictions
-    restrictions_tooltip: |
-        <p>A description of what kinds of actions are not permissible to the repository and/or the end user.</p>
-        <p>Examples:</p>
-        <ul>
-        <li>Photocopying, scanning, or photographing of materials not allowed.</li>
-        </ul>
-    restriction_start_date: Restrictions Start Date
-    restriction_start_date_tooltip: |
+    determination_date: Determination Date
+    start_date: Start Date
+    start_date_tooltip: |
         <p>The date the restriction(s) go into effect.</p>
-    restriction_end_date: Restrictions End Date
-    restriction_end_date_tooltip: |
+    end_date: End Date
+    end_date_tooltip: |
         <p>The date the restriction(s) cease to apply.</p>
-    granted_note: Granted Note
-    granted_note_tooltip: |
-        <p>Any qualifying information about the permissions granted or restrictions to be enforced.</p>
-        <p>Examples</p>
-        <ul>
-        <li>Contact donor's family if access is requested before restriction end date arrives.</li>
-        </ul>
+    other_rights_basis:
+      Other Rights Basis
     _plural: Rights Statements
     _singular: Rights Statement
 
-  rights_type_intellectual_property:
+  rights_type_copyright:
     <<: *rights_statement_attributes
 
   rights_type_license:
@@ -1026,7 +1009,7 @@ en:
   rights_type_statute:
     <<: *rights_statement_attributes
 
-  rights_type_institutional_policy:
+  rights_type_other:
     <<: *rights_statement_attributes
 
   date: &date_attributes
@@ -2005,3 +1988,14 @@ en:
     reparent_error:
       title: Unable to perform move
       message: The move has been disallowed as a parent cannot become its own child.
+
+  rights_statement_act: &rights_statement_act_attributes
+    _singular: Act
+    _plural: Acts
+    act_type: Act Type
+    restriction: Restriction
+    start_date: Start Date
+    end_date: End Date
+
+  act:
+    <<: *rights_statement_act_attributes

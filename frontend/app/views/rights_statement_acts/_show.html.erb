@@ -1,0 +1,21 @@
+<%
+  section_id = "rights_statement_acts" if section_id.blank?
+%>
+<section id="<%= section_id %>" class="subrecord-form-dummy">
+
+  <h3><%= I18n.t("rights_statement_act._plural") %></h3>
+
+  <div class="subrecord-form-container">
+    <% acts.each_with_index do | act, index | %>
+      <%= readonly_context :rights_statement_act, act do |readonly| %>
+        <div class="subrecord-form-fields external-document">
+          <%= readonly.label_and_select("act_type", readonly.possible_options_for("act_type", true)) %>
+          <%= readonly.label_and_select("restriction", readonly.possible_options_for("restriction", true)) %>
+          <%= readonly.label_and_date("start_date") %>
+          <%= readonly.label_and_date("end_date") %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</section>

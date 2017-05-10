@@ -411,6 +411,10 @@ $(function() {
       $("section.notes-form.subrecord-form:not(.initialised)", $container).init_notes_form();
     });
 
+    $(document).bind("subrecordcreated.aspace", function(event, type, $subform) {
+      $("section.notes-form.subrecord-form:not(.initialised)", $subform).init_notes_form();
+    });
+
    // $("section.notes-form.subrecord-form:not(.initialised)").init_notes_form();
   });
 

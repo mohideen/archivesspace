@@ -9,6 +9,7 @@ require 'tmpdir'
 require 'tempfile'
 require 'config/config-distribution'
 require 'asconstants'
+require 'json'
 
 module ASUtils
 

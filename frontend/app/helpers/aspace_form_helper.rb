@@ -714,6 +714,8 @@ module AspaceFormHelper
 
 
   def templates_for_js(jsonmodel_type = nil)
+    @delivering_js_templates = true
+
     result = ""
 
     return result if @templates.blank?
@@ -721,22 +723,38 @@ module AspaceFormHelper
     obj = {}
     obj['jsonmodel_type'] = jsonmodel_type if jsonmodel_type
 
-    @templates.each do |name, template|
-      context = FormContext.new("${path}", obj, self)
+    templates_to_process = @templates.clone
+    templates_processed = []
 
-      def context.id_for(name, qualify = true)
-        name = path(name) if qualify
+    # FIXME infinite loop scary
+    while(true)
+      templates_to_process.each do |name, template|
+        context = FormContext.new("${path}", obj, self)
 
-        name.gsub(/[\[\]]/, '_').gsub('${path}', '${id_path}')
+        def context.id_for(name, qualify = true)
+          name = path(name) if qualify
+
+          name.gsub(/[\[\]]/, '_').gsub('${path}', '${id_path}')
+        end
+
+        context.instance_eval do
+          @active_template = name
+        end
+
+        result << "<div id=\"template_#{name}\"><!--"
+        result << capture(context, &template[:block])
+        result << "--></div>"
+
+        templates_processed << name
       end
 
-      context.instance_eval do
-        @active_template = name
+      if templates_processed.length < @templates.length
+        # some new templates were defined while outputing the js templates
+        templates_to_process = @templates.reject{|name, _| templates_processed.include?(name)}
+      else
+        # we've got them all
+        break
       end
-
-      result << "<div id=\"template_#{name}\"><!--"
-      result << capture(context, &template[:block])
-      result << "--></div>"
     end
 
     result.html_safe

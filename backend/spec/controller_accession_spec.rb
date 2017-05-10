@@ -92,7 +92,6 @@ describe 'Accession controller' do
                                           ]).save
     JSONModel(:accession).find(acc).rights_statements.length.should eq(1)
     JSONModel(:accession).find(acc).rights_statements[0]["identifier"].should eq("abc123")
-    JSONModel(:accession).find(acc).rights_statements[0]["active"].should eq(true)
   end
 
 

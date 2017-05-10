@@ -1293,15 +1293,29 @@ en:
       YE: Yemen
       ZM: Zambia
       ZW: Zimbabwe
+    rights_statement_act_type:
+      delete: Delete
+      disseminate: Disseminate
+      migrate: Migrate
+      modify: Modify
+      replicate: Replicate
+      use: Use
+    rights_statement_act_restriction:
+      allow: Allow
+      disallow: Disallow
+      conditional: Conditional
     rights_statement_rights_type:
-      intellectual_property: Intellectual Property
+      copyright: Copyright
       license: License
       statute: Statute
-      institutional_policy: Institutional Policy
+      other: Other
     rights_statement_ip_status:
       copyrighted: Copyrighted
       public_domain: Public Domain
       unknown: Unknown
+    rights_statement_other_rights_basis:
+      donor: Donor
+      policy: Policy
     subject_term_type:
       cultural_context: Cultural context
       function: Function
@@ -1355,6 +1369,15 @@ en:
       <<: *note_type_definitions
     note_singlepart_type:
       <<: *note_type_definitions
+    note_rights_statement_type:
+      additional_information: Additional Information
+      materials: Materials
+      type_note: Type Note
+    note_rights_statement_act_type:
+      expiration: Expiration
+      extension: Extension
+      permissions: Permissions
+      restrictions: Restrictions
     linked_agent_role:
       creator: Creator
       source: Source
@@ -1414,6 +1437,10 @@ en:
       av_materials: Audiovisual Materials
       arrivals: Arrivals
       shared: Shared
+    # TODO real enum values
+    rights_statement_external_document_identifier_type:
+      test_a: Testing A
+      test_b: Testing B
 
 
   enumeration_names:
@@ -1484,3 +1511,4 @@ en:
     dimension_units: Dimension Units
     restriction_type: Local Access Restriction Type
     location_function_type: Location Function Type
+    rights_statement_external_document_identifier_type: Rights Statement External Document Identifier Type
